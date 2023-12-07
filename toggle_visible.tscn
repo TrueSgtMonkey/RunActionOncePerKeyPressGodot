@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx3kn3y3kc8en"]
+
+[ext_resource type="Texture2D" uid="uid://bnrvrd7ur4gw0" path="res://icon.svg" id="1_g7q1l"]
+[ext_resource type="Script" path="res://ToggleVisible.gd" id="2_oe620"]
+
+[node name="ToggleVisible" type="Sprite2D"]
+position = Vector2(545, 323)
+texture = ExtResource("1_g7q1l")
+script = ExtResource("2_oe620")

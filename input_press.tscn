@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5f1bop8k4rj5"]
+
+[ext_resource type="PackedScene" uid="uid://cx3kn3y3kc8en" path="res://toggle_visible.tscn" id="1_54obx"]
+
+[node name="InputPress" type="Node2D"]
+
+[node name="ToggleVisible" parent="." instance=ExtResource("1_54obx")]
