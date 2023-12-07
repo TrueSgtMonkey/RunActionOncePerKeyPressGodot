@@ -10,6 +10,8 @@ const MIN_RADIUS : float = 50.0
 var add : float = 0.0
 var originalPosition : Vector2
 var isDecreasing : bool = false
+var isSpinning : bool = false
+var isSpinningHeldDown : bool = false
 
 func _ready():
   originalPosition = position
@@ -19,7 +21,17 @@ func _input(event):
     visible = !visible
     
 func _physics_process(delta):
-  spinSprite(delta)
+  runSpinSpriteInput(delta)
+    
+func runSpinSpriteInput(delta : float):
+  if Input.is_action_pressed("toggle_spin") && !isSpinningHeldDown:
+    isSpinning = !isSpinning
+    isSpinningHeldDown = true
+  elif Input.is_action_just_released("toggle_spin"):
+    isSpinningHeldDown = false
+
+  if isSpinning:
+    spinSprite(delta)
   
 func spinSprite(delta : float):
   add += delta
@@ -38,4 +50,3 @@ func spinSprite(delta : float):
     radius += delta * -radiusIncreaseSpeed
   else:
     radius += delta * radiusIncreaseSpeed
-  print(radius)
